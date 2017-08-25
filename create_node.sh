@@ -112,19 +112,25 @@ for i in ${FILES[@]}; do
 	sed -i -e "s/PROGRAMMER/${PROGRAMMER}/g" ${i}
 done
 echo -en "."
-mv include/CLASS_LC/CLASS_LC.h include/CLASS_LC/${CLASS_LC}.h
-mv include/CLASS_LC include/${CLASS_LC}
+git mv include/CLASS_LC/CLASS_LC.h include/CLASS_LC/${CLASS_LC}.h
+git mv include/CLASS_LC include/${CLASS_LC}
 
-mv src/CLASS_LC.cpp src/${CLASS_LC}.cpp
-mv src/CLASS_LC_node.cpp src/${CLASS_LC}_node.cpp
+git mv src/CLASS_LC.cpp src/${CLASS_LC}.cpp
+git mv src/CLASS_LC_node.cpp src/${CLASS_LC}_node.cpp
 echo "${wipe}"
 
 cd ../..
 
-echo "Done moving files.  Perform catkin_make? [Y/n]"
+echo "Done moving files.  Perform catkin_make? [y/N]"
 read BUILD
 
-if [ $BUILD == 'n' ]; then
+if [ -z "$BUILD" ]
+then
+	BUILD=N
+fi
+
+
+if [ $BUILD == 'y' ]; then
 	echo "skipping build"
 else
 	catkin_make
