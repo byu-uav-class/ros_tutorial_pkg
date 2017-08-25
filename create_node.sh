@@ -111,13 +111,13 @@ for i in ${FILES[@]}; do
 	sed -i -e "s/EMAIL@gmail.com/${EMAIL}/g" ${i}
 	sed -i -e "s/PROGRAMMER/${PROGRAMMER}/g" ${i}
 done
-echo -en "."
-git mv include/CLASS_LC/CLASS_LC.h include/CLASS_LC/${CLASS_LC}.h
-git mv include/CLASS_LC include/${CLASS_LC}
+echo -e "."
+mv include/CLASS_LC/CLASS_LC.h include/CLASS_LC/${CLASS_LC}.h
+mv include/CLASS_LC include/${CLASS_LC}
 
-git mv src/CLASS_LC.cpp src/${CLASS_LC}.cpp
-git mv src/CLASS_LC_node.cpp src/${CLASS_LC}_node.cpp
-echo "${wipe}"
+mv src/CLASS_LC.cpp src/${CLASS_LC}.cpp
+mv src/CLASS_LC_node.cpp src/${CLASS_LC}_node.cpp
+echo -en"${wipe}"
 
 cd ../..
 
@@ -131,9 +131,9 @@ fi
 
 
 if [ $BUILD == 'y' ]; then
-	echo "skipping build"
-else
 	catkin_make
+else
+	echo "Skipping Build"
 fi
 
-echo "${green}Finished.  Remember to rename the folder and restart the .git directory${wipe}"
+echo -e"${green}Finished.  Remember to rename the folder and restart the .git directory${wipe}"
