@@ -7,7 +7,7 @@ wipe="\033[1m\033[0m"
 echo_yellow "Welcome to the Node Creator!"
 
 echo -e "What is the name of the ${red}class${wipe} you're wrapping a Node around?  ${red}[camelCase format]${wipe}"
-read CLASS 
+read CLASS
 
 echo -e "What is the name of the ${red}class${wipe} you're wrapping a node around in? ${red}[lower_case format]${wipe}"
 read CLASS_LC
@@ -58,7 +58,6 @@ for i in ${FILES[@]}; do
 	sed -i -e "s/NAMESPACE/${CLASS_LC}/g" ${i}
 	sed -i -e "s/EMAIL@gmail.com/${EMAIL}/g" ${i}
 	sed -i -e "s/PROGRAMMER/${PROGRAMMER}/g" ${i}
-	read DONE
 done
 echo -en "."
 mv include/CLASS_LC/CLASS_LC.h include/CLASS_LC/${CLASS_LC}.h
@@ -80,5 +79,3 @@ else
 fi
 
 echo "Finished.  Remember to rename the folder and restart the .git directory"
-
-
