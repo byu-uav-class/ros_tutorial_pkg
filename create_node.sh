@@ -137,4 +137,4 @@ else
 	echo -e "Skipping Build"
 fi
 
-echo -en "${green}Finished.  Remember to rename the folder and restart the .git directory${wipe}"
+echo -en "${green}Finished.  Remember to rename the folder and restart the .git directory${wipe}\n"
