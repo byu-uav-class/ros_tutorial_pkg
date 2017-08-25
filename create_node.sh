@@ -117,7 +117,7 @@ mv include/CLASS_LC include/${CLASS_LC}
 
 mv src/CLASS_LC.cpp src/${CLASS_LC}.cpp
 mv src/CLASS_LC_node.cpp src/${CLASS_LC}_node.cpp
-echo ""
+echo "${wipe}"
 
 cd ../..
 
@@ -130,4 +130,4 @@ else
 	catkin_make
 fi
 
-echo ${green}"Finished.  Remember to rename the folder and restart the .git directory"${wipe}
+echo "${green}Finished.  Remember to rename the folder and restart the .git directory${wipe}"
