@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(CLASS_LC)
+project(sample_node)
 
 find_package(catkin REQUIRED COMPONENTS
-  SUB_NAMESPACE
-  PUB_NAMESPACE
+  geometry_msgs
+  sensor_msgs
   roscpp
   rospy
 )
@@ -19,16 +19,16 @@ include_directories(
 )
 
 ## Declare a cpp library
-# add_library(CLASS_LC
-#   src/${PROJECT_NAME}/CLASS_LC.cpp
+# add_library(sample_node
+#   src/${PROJECT_NAME}/sample_node.cpp
 # )
 
 ## Declare a cpp executable
-add_executable(CLASS_LC_node src/CLASS_LC_node.cpp src/CLASS_LC.cpp)
+add_executable(sample_node_node src/sample_node_node.cpp src/sample_node.cpp)
 
 ## Add cmake target dependencies of the executable/library
-add_dependencies(CLASS_LC_node relative_nav_msgs_generate_messages_cpp)
+add_dependencies(sample_node_node relative_nav_msgs_generate_messages_cpp)
 
-target_link_libraries(CLASS_LC_node
+target_link_libraries(sample_node_node
   ${catkin_LIBRARIES}
 )

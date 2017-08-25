@@ -1,20 +1,20 @@
 <?xml version="1.0"?>
 <package>
-  <name>CLASS_LC</name>
+  <name>sample_node</name>
   <version>0.0.0</version>
-  <description>The CLASS_LC package</description>
+  <description>The sample_node package</description>
 
-  <maintainer email="EMAIL@gmail.com">PROGRAMMER</maintainer>
+  <maintainer email="todo@todo.com"></maintainer>
 
   <license>TODO</license>
 
   <buildtool_depend>catkin</buildtool_depend>
-  <build_depend>SUB_NAMESPACE</build_depend>
-  <build_depend>PUB_NAMESPACE</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>sensor_msgs</build_depend>
   <build_depend>roscpp</build_depend>
   <build_depend>rospy</build_depend>
-  <run_depend>SUB_NAMESPACE</run_depend>
-  <run_depend>PUB_NAMESPACE</run_depend>
+  <run_depend>geometry_msgs</run_depend>
+  <run_depend>sensor_msgs</run_depend>
   <run_depend>roscpp</run_depend>
   <run_depend>rospy</run_depend>
 

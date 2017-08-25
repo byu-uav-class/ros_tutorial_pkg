@@ -1,19 +1,19 @@
-#ifndef CLASS_UC_H
-#define CLASS_UC_H
+#ifndef SAMPLE_NODE_H
+#define SAMPLE_NODE_H
 
 #include <ros/ros.h>
-#include <SUB_NAMESPACE/SUB_TYPE.h>
-#include <PUB_NAMESPACE/PUB_TYPE.h>
+#include <geometry_msgs/Vector3.h>
+#include <sensor_msgs/Imu.h>
 
-namespace NAMESPACE
+namespace sample_node
 {
 
-class CLASS
+class sampleNode
 {
 
 public:
 
-  CLASS();
+  sampleNode();
 
 private:
 
@@ -22,18 +22,18 @@ private:
   ros::NodeHandle nh_private_; //!< private node handle for pulling parameter values from the parameter server
 
   // Publishers and Subscribers
-  ros::Subscriber SUB_TYPE_subscriber_;
-  ros::Publisher PUB_TYPE_publisher_; 
+  ros::Subscriber Vector3_subscriber_;
+  ros::Publisher Imu_publisher_; 
 
   // Parameters
-  double PARAM_; 
+  double param_; 
 
   // Local Variables
 
   // Functions
-  void SUB_TYPECallback(const SUB_NAMESPACE::SUB_TYPEConstPtr &msg);
+  void Vector3Callback(const geometry_msgs::Vector3ConstPtr &msg);
 };
 
-} // namespace NAMESPACE
+} // namespace sample_node
 
-#endif // CLASS_H
+#endif // sampleNode_H
