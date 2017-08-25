@@ -6,35 +6,87 @@ wipe="\033[1m\033[0m"
 
 echo_yellow "Welcome to the Node Creator!"
 
-echo -e "What is the name of the ${red}class${wipe} you're wrapping a Node around?  ${red}[camelCase format]${wipe}"
+echo -e "What is the name of the ${red}class${wipe} you're wrapping a Node around?  ${red}[camelCase format]${wipe} [sampleNode]"
 read CLASS
 
-echo -e "What is the name of the ${red}class${wipe} you're wrapping a node around in? ${red}[lower_case format]${wipe}"
+if [ -z "$CLASS" ]
+then
+	CLASS=sampleNode
+fi
+
+echo -e "What is the name of the ${red}class${wipe} you're wrapping a node around in? ${red}[lower_case format]${wipe} [sample_node]"
 read CLASS_LC
 
-echo -e "What ${red}topic${wipe} would you like to subscribe to? (no quotes)"
+if [ -z "$CLASS_LC" ]
+then
+	CLASS_LC=sample_node
+fi
+
+echo -e "What ${red}topic${wipe} would you like to subscribe to? (no quotes) [in_topic]"
 read SUB_TOPIC
 
-echo -e "What is the ${red}namespace${wipe} of the message type you're subcribing to? [${yellow}relative_nav_msgs${wipe}::FilterState ]"
+if [ -z "$SUB_TOPIC" ]
+then
+	SUB_TOPIC=in_topic
+fi
+
+
+echo -e "What is the ${red}namespace${wipe} of the message type you're subcribing to? [${yellow}geometry_msgs${wipe}::Vector3 ]"
 read SUB_NAMESPACE
 
-echo -e "What is the message ${red}type${wipe} you're subcribing to? [relative_nav_msgs::${yellow}FilterState${wipe}]"
+if [ -z "$SUB_NAMESPACE" ]
+then
+	SUB_NAMESPACE=geometry_msgs
+fi
+
+echo -e "What is the message ${red}type${wipe} you're subcribing to? [geometry_msgs::${yellow}Vector3${wipe}]"
 read SUB_TYPE
 
-echo -e "What ${red}topic${wipe} would you like to publish to? (no quotes)"
+if [ -z "$SUB_TYPE" ]
+then
+	SUB_TYPE=Vector3
+fi
+
+echo -e "What ${red}topic${wipe} would you like to publish to? (no quotes) [out_topic]"
 read PUB_TOPIC
 
-echo -e "What is the ${red}namespace${wipe} of the message type you're publishing to? [${yellow}relative_nav_msgs${wipe}::FilterState ]"
+if [ -z "$PUB_TOPIC" ]
+then
+	PUB_TOPIC=out_topic
+fi
+
+echo -e "What is the ${red}namespace${wipe} of the message type you're publishing to? [${yellow}sensor_msgs${wipe}::Imu ]"
 read PUB_NAMESPACE
 
-echo -e "What is the message ${red}type${wipe} you're publishing to? [relative_nav_msgs::${yellow}FilterState${wipe}]"
+if [ -z "$PUB_NAMESPACE" ]
+then
+	PUB_NAMESPACE=sensor_msgs
+fi
+
+echo -e "What is the message ${red}type${wipe} you're publishing to? [sensor_msgs::${yellow}Imu${wipe}]"
 read PUB_TYPE
+
+if [ -z "$PUB_TYPE" ]
+then
+	PUB_TYPE=Imu
+fi
 
 echo -e "What is your ${red}email${wipe}?"
 read EMAIL
 
-echo -e "What is your ${red}name${wipe}?"
+if [ -z "$EMAIL" ]
+then
+	EMAIL=todo@todo.com
+fi
+
+echo -e "What is your ${red}name${wipe}? [Firstname Lastname]"
 read PROGRAMMER
+
+if [ -z "$PROGRAMMER" ]
+then
+	PROGRAMMER=Firstname Lastname
+fi
+
 
 FILES=(include/CLASS_LC/CLASS_LC.h src/CLASS_LC_node.cpp src/CLASS_LC.cpp package.xml CMakeLists.txt)
 
@@ -78,4 +130,4 @@ else
 	catkin_make
 fi
 
-echo "Finished.  Remember to rename the folder and restart the .git directory"
+echo ${green}"Finished.  Remember to rename the folder and restart the .git directory"${wipe}
