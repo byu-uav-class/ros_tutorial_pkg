@@ -117,7 +117,7 @@ mv include/CLASS_LC include/${CLASS_LC}
 
 mv src/CLASS_LC.cpp src/${CLASS_LC}.cpp
 mv src/CLASS_LC_node.cpp src/${CLASS_LC}_node.cpp
-echo -en"${wipe}"
+echo -e "${wipe}"
 
 cd ../..
 
@@ -133,7 +133,7 @@ fi
 if [ $BUILD == 'y' ]; then
 	catkin_make
 else
-	echo "Skipping Build"
+	echo -e"Skipping Build"
 fi
 
-echo -e"${green}Finished.  Remember to rename the folder and restart the .git directory${wipe}"
+echo -en "${green}Finished.  Remember to rename the folder and restart the .git directory${wipe}"
