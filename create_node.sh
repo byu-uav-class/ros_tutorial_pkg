@@ -2,6 +2,7 @@
 
 yellow='\E[0;33m'
 red='\E[0;31m'
+green='\E[0;32m'
 wipe="\033[1m\033[0m"
 
 echo_yellow "Welcome to the Node Creator!"
@@ -112,11 +113,11 @@ for i in ${FILES[@]}; do
 	sed -i -e "s/PROGRAMMER/${PROGRAMMER}/g" ${i}
 done
 echo -e "."
-mv include/CLASS_LC/CLASS_LC.h include/CLASS_LC/${CLASS_LC}.h
-mv include/CLASS_LC include/${CLASS_LC}
+git mv include/CLASS_LC/CLASS_LC.h include/CLASS_LC/${CLASS_LC}.h
+git mv include/CLASS_LC include/${CLASS_LC}
 
-mv src/CLASS_LC.cpp src/${CLASS_LC}.cpp
-mv src/CLASS_LC_node.cpp src/${CLASS_LC}_node.cpp
+git mv src/CLASS_LC.cpp src/${CLASS_LC}.cpp
+git mv src/CLASS_LC_node.cpp src/${CLASS_LC}_node.cpp
 echo -e "${wipe}"
 
 cd ../..
@@ -133,7 +134,7 @@ fi
 if [ $BUILD == 'y' ]; then
 	catkin_make
 else
-	echo -e"Skipping Build"
+	echo -e "Skipping Build"
 fi
 
 echo -en "${green}Finished.  Remember to rename the folder and restart the .git directory${wipe}"
